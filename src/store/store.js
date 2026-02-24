@@ -1,19 +1,7 @@
-import {createSlice} from '@reduxjs/toolkit';
-const initialState = {
-    user:"caleb",              
-  theme: 'light',
-};
-const appSlice = createSlice({
-  name: 'app',
-  initialState,
-    reducers: { 
-        toggleTheme: (state) => {
-            state.theme = state.theme === 'light' ? 'dark' : 'light';
-        } ,      
-        setUser: (state, action) => {
-            state.user = action.payload;
-        }   
+import {configStore} from configStore
+
+export const store=configStore({
+    reducer:{
+        app:appReducer,
     },
-});  
-export const { toggleTheme, setUser } = appSlice.actions;
-export default appSlice.reducer;
+})
